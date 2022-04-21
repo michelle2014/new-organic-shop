@@ -1,0 +1,28 @@
+<p>
+    <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
+</p>
+
+<div>
+    <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search...">
+</div>
+
+<table matSort (matSortChange)="sortData($event)" class="table">
+    <thead>
+        <tr>
+            <th mat-sort-header="title">Title</th>
+            <th mat-sort-header="price">Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of filteredProducts">
+            <td>{{ p.title }}</td>
+            <td>{{ p.price }}</td>
+            <td>
+                <a [routerLink]="['/admin/products/', p.id]">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<app-paginator></app-paginator>

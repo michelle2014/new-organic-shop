@@ -1,0 +1,8 @@
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.navbar {
+    z-index: 10000;
+}
